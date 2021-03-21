@@ -4724,8 +4724,9 @@ void CGame::clear_board()
 }
 
 
-~CGame::CGame()
+CGame::~CGame()
 {
+	// dealocating the alocated memory
 	delete pawn;
 	delete rook;
 	delete knight;
