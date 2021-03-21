@@ -1,7 +1,5 @@
 ![Chess_game1](https://user-images.githubusercontent.com/74405864/111913130-6bd72280-8a75-11eb-9003-1bb6e3029c3a.png)
 
-![Chess_game2](https://user-images.githubusercontent.com/74405864/111913141-785b7b00-8a75-11eb-9976-ea31d224c1ba.png)
-
 ![Chess_game3](https://user-images.githubusercontent.com/74405864/111913149-7f828900-8a75-11eb-9ea2-46fa6f867b72.png)
 
 ![Chess_game4](https://user-images.githubusercontent.com/74405864/111913157-87422d80-8a75-11eb-9b0e-2ed2bff6c35b.png)
