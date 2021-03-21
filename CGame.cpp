@@ -4724,4 +4724,14 @@ void CGame::clear_board()
 }
 
 
+~CGame::CGame()
+{
+	delete pawn;
+	delete rook;
+	delete knight;
+	delete bishop;
+	delete queen;
+	delete king;
+}
+
 
