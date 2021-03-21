@@ -304,7 +304,7 @@ bool Queen::is_move_valid(int startRow, int startCol, int endRow, int endCol, in
 					((startCol - 1) - b_queen_n_rows == endCol - 1))
 				{
 					// validating if the moveis blocked
-					if (!!is_move_blocked(startRow, startCol, endRow, endCol, board))
+					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
 					}
