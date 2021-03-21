@@ -150,6 +150,8 @@ public:
 	// validates whether the game was loaded successfully
 	virtual bool load_game() override;
 
+	// destructor
+	~CGame();
 
 };
 
