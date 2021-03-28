@@ -1,5 +1,4 @@
 
-#include "CGame.h"
 #include "Board.h"
 
 
@@ -15,7 +14,7 @@ int main()
 
 
   
-    // calling game_play() method
+    // starting the game loop
     game.game_play();
 
     
