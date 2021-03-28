@@ -34,7 +34,7 @@ protected:
 	bool selected_end_sq;
 
 	// enumerator for the board columns
-	enum piece_columns { A = 1, B, C, D, E, F, G, H };
+	enum board_columns { A = 1, B, C, D, E, F, G, H };
 
 	// integer to hold the number of characters inputted
 	int count_user_input = 0;
