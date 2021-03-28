@@ -2955,7 +2955,7 @@ void CGame::game_play()
 	// message for the S/Q options while in-game
 	cout << "\n\n\tThe player whose turn is can save the game by selecting (S) or can\n\t";
 	cout << "quit to the main menu by selecting (Q).\n\n\t";
-	cout << "\n\tIf the game is being saved upon playing, the players will still be able to continue to play until the game is (Q)ited.\n";
+	cout << "\n\tIf the game is being saved upon playing, the players will still be able to continue to play until the game is exited.\n";
 	
 
 	cout << "\n\n\tEnjoy your game!\n\n\n";
