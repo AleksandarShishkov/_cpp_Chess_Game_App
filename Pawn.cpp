@@ -209,13 +209,13 @@ bool Pawn::is_pawn_en_passant()
 bool Pawn::pawn_promotion(int startRow, int startCol, int endRow, int endCol, int board[8][8])
 {
 
-	// integers to count the white promotable figures
+	// integers to count the white promotable figures set to 0
 	int white_rook = 0, white_knight = 0, white_bishop = 0, white_queen = 0;
 
-	// integers to count the black promotable figures
+	// integers to count the black promotable figures set to 0
 	int black_rook = 0, black_knight = 0, black_bishop = 0, black_queen = 0;
 
-	// integer to hold the choice
+	// integer to hold the choice set to 0
 	char choice_promotion = 0;
 
 	// boolean for the promotion loop
@@ -229,7 +229,7 @@ bool Pawn::pawn_promotion(int startRow, int startCol, int endRow, int endCol, in
 		if ((startRow - 1 == 1 && (startCol - 1 >= 0 && startCol - 1 <= 8)) && (endRow - 1 == 0 && (endCol - 1 >= 0 && endCol - 1 < 8)))
 		{
 
-			// setting the white piece counters to 0
+			// re-setting the white piece counters
 			white_rook = 0;
 			white_knight = 0;
 			white_bishop = 0;
@@ -242,18 +242,22 @@ bool Pawn::pawn_promotion(int startRow, int startCol, int endRow, int endCol, in
 				{
 					if (board[i][j] == 2)
 					{
+						// adding 1 to white_rook
 						white_rook++;
 					}
 					else if (board[i][j] == 3)
 					{
+						// adding 1 to white_knight
 						white_knight++;
 					}
 					else if (board[i][j] == 4)
 					{
+						// adding 1 to white_bishop
 						white_bishop++;
 					}
 					else if (board[i][j] == 5)
 					{
+						// adding 1 to white_queen
 						white_queen++;
 					}
 				}
@@ -281,6 +285,7 @@ bool Pawn::pawn_promotion(int startRow, int startCol, int endRow, int endCol, in
 				cin >> choice_promotion;
 			}
 
+			// setting prompted to false
 			promoted = false;
 
 			while (!promoted)
@@ -339,7 +344,7 @@ bool Pawn::pawn_promotion(int startRow, int startCol, int endRow, int endCol, in
 		if ((startRow - 1 == 6 && (startCol - 1 >= 0 && startCol - 1 < 8)) && (endRow - 1 == 7 && (endCol - 1 >= 0 && endCol - 1 < 8)))
 		{
 
-			// setting the black piece counters to 0
+			// re-setting the black piece counters
 			black_rook = 0;
 			black_knight = 0;
 			black_bishop = 0;
@@ -353,18 +358,22 @@ bool Pawn::pawn_promotion(int startRow, int startCol, int endRow, int endCol, in
 				{
 					if (board[i][j] == 8)
 					{
+						// adding 1 to black_rook
 						black_rook++;
 					}
 					else if (board[i][j] == 9)
 					{
+						// adding 1 to black_knight
 						black_knight++;
 					}
 					else if (board[i][j] == 10)
 					{
+						// adding 1 to black_bishop
 						black_bishop++;
 					}
 					else if (board[i][j] == 11)
 					{
+						// adding 1 to black_queen
 						black_queen++;
 					}
 				}
