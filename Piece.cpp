@@ -106,7 +106,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		// integer to hold the number of columns between the starting and the ending column
 		int w_rook_cols = 0;
 
-		// validating whether the upper squares on the column are empty
+		// validating if the upper squares on the column are empty
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -128,7 +128,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the lower squares on the column are empty
+		// validating if the lower squares on the column are empty
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -149,7 +149,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the right squares on the row are empty
+		// validating if the right squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -171,7 +171,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating whether the left squares on the row are empty
+		// validating if the left squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -302,7 +302,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating whether the upper squares on the column are empty
+		// validating if the upper squares on the column are empty
 
 		if ((startRow - 1 > endRow - 1) && (endCol - 1 == startCol - 1))
 		{
@@ -323,7 +323,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the lower squares on the column are empty
+		// validating if the lower squares on the column are empty
 
 		if ((startRow - 1 < endRow - 1) && (endCol - 1 == startCol - 1))
 		{
@@ -344,7 +344,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the right squares on the row are empty
+		// validating if the right squares on the row are empty
 
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 < endCol - 1))
 		{
@@ -365,7 +365,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the left squares on the row are empty
+		// validating if the left squares on the row are empty
 
 		if ((startRow - 1 == endRow - 1) && (endCol - 1 < startCol - 1))
 		{
@@ -516,7 +516,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		// integer to hold the number of columns between the starting and the ending column
 		int b_rook_cols = 0;
 
-		// validating whether the upper squares on the column are empty
+		// validating if the upper squares on the column are empty
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -537,7 +537,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the lower squares on the column are empty
+		// validating if the lower squares on the column are empty
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -558,7 +558,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the right squares on the row are empty
+		// validating if the right squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -579,7 +579,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating whether the left squares on the row are empty
+		// validating if the left squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -709,7 +709,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating whether the upper squares on the column are empty
+		// validating if the upper squares on the column are empty
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -729,7 +729,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the lower squares on the column are empty
+		// validating if the lower squares on the column are empty
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -749,7 +749,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the right squares on the row are empty
+		// validating if the right squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -769,7 +769,7 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating whether the left squares on the row are empty
+		// validating if the left squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -882,11 +882,13 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 bool Piece::are_right_castling_sqs_valid(int owner, int startRow, int startCol, int board[8][8])
 {
+	// returning false by default
 	return false;
 }
 
 bool Piece::are_left_castling_sqs_valid(int owner, int startRow, int startCol, int board[8][8])
 {
+	// returning false by default
 	return false;
 }
 
