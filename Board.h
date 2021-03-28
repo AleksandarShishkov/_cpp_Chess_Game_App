@@ -31,11 +31,11 @@ protected:
 	// integer set to 0 for the empty squares
 	int sq_empty = 0;
 
-	// the sizes for rows and cols
+	// integers for the board rows and columns
 	int size_r = 8;
 	int size_c = 8;
 
-	// the size for the squares
+	// integers for the lenght and the height of the board squares
 	int sq_lenght = 7;
 	int sq_height = 3;
 
@@ -50,7 +50,7 @@ protected:
 	enum owner_p { white_owner, black_owner };
 
 
-	// static integers to hold the number of the moves made by the players
+	// integers to kepp count of the players moves set to 0
 	int count_moves_white = 0;
 	int count_moves_black = 0;
 
@@ -60,21 +60,21 @@ protected:
 	// string to hold the black owner`s last move
 	string last_move_black = "---";
 
-	// integers to hold the number of wins per player
+	// integers to hold the number of wins per player set to 0
 	int games_won_white = 0;
 	int games_won_black = 0;
 
-	// integer to hold the number of games draw
+	// integer to hold the number of games draw set to 0
 	int games_draw = 0;
 
-	// intehers to hold the end-game number of wins per player
+	// intehers to hold the end-game number of wins per player set to 0
 	int end_games_won_white = 0;
 	int end_games_won_black = 0;
 
-	// integer to hold the end-game number of draws
+	// integer to hold the end-game number of draws set to 0
 	int end_games_draw = 0;
 	
-	// integers to count the kings casling moves
+	// integers to keep count of the kings casling moves set to 0
 	int count_castling_white = 0;
 	int count_castling_black = 0;
 	
@@ -87,56 +87,51 @@ public:
 	int board[8][8];
 
 
-	// default constructor for the initial values
+	// default constructor 
 	Board();
 
 
-	// initialize piece on the board, prints the piece id
+	// initialize a piece on the board, prints the piece id
 	void print_piece(int sq_color, int row, int col);
 
 	
 
-	// performs move from start position to end position, returns 1 if successfull, 0 if not
+	// virtual method for the move from start position to end position, returns 1 if successfull, 0 if not
 	virtual void move_piece(int startRow, int startCol, int endRow, int endCol);
 
 
-	// the main game loop
+	// virtual method for the main game loop
 	virtual void game_play();
 
 
-	// validates whether the game is over
+	// virtual method for game-over validation	
 	virtual bool is_game_over();
 
 
-	// printing the number of the moves made by the players
+	// method for printing the number of the moves made by the players
 	void print_count_moves();
 
 
-	// printing the last move
+	// method for printing the last moves
 	void print_last_move();
 
-	// printing the current score
+	// method for printing the current score
 	void print_score();
 
-	// resetting the score if the game quited
+	// method for score re-set if the game is exited
 	void reset_score();
 
-
-
-
-	// printing save and exit options
+	// method for the save and exit options
 	void print_save_exit();
 
-	// virtual boolean functon for new game validation
+	// virtual method for new game validation
 	virtual bool new_game();
 
-	// virtual boolean for saving game validation
+	// virtual method for save game validation
 	virtual bool save_game();
 
-	// virtual boolean function for loading game validation
+	// virtual method for load game validation
 	virtual bool load_game();
-
-
 
 
 
