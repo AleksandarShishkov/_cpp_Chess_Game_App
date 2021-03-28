@@ -1,5 +1,5 @@
 
-#include "Board.h"
+#include "CGame.h"
 
 
 
