@@ -1,7 +1,7 @@
 #ifndef QUEEN_H
 #define QUEEN_H
 
-
+// including Piece.h
 #include "Piece.h"
 
 class Queen :public Piece
@@ -22,7 +22,7 @@ public:
 	// constructor with parameters for the owner color and the piece id
 	Queen(int owner, int piece_id);
 
-	// validating the queen`s move
+	// overriding is_move_valid method defined in Piece.h
 	bool is_move_valid(int startRow, int startCol, int endRow, int endCol, int board[8][8]) override;
 
 
