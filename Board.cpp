@@ -6,7 +6,7 @@
 Board::Board()
 {
 
-	// initializing the array to sq_empty
+	// initializing the array elements to sq_empty
 	for (int i = 0; i < size_r; ++i)
 		for (int j = 0; j < size_c; ++j)
 		{
@@ -136,6 +136,7 @@ void Board::game_play()
 
 bool Board::is_game_over()
 {
+	// returning false by default
 	return false;
 }
 
@@ -150,7 +151,7 @@ void Board::print_score()
 
 void Board::print_save_exit()
 {
-	// printing save and quit options
+	// printing save and exit options
 	cout << "\t\t\t\t\t(S)ave     (Q)uit\n";
 }
 void Board::print_count_moves()
@@ -172,7 +173,7 @@ void Board::print_last_move()
 
 void Board::reset_score()
 {
-	// resetting the score
+	// re-setting the score
 	this->games_won_white = 0;
 	this->games_won_black = 0;
 	this->games_draw = 0;
@@ -186,12 +187,14 @@ void Board::reset_score()
 
 bool Board::new_game()
 {
+	// returning true by default
 	return true;
 }
 
 
 bool Board::save_game()
 {
+	// returning true by default
 	return true;
 }
 
