@@ -36,7 +36,7 @@ protected:
 	// enumerator for the board columns
 	enum board_columns { A = 1, B, C, D, E, F, G, H };
 
-	// integer to hold the number of characters inputted
+	// integer to hold the number of characters inputted by the user
 	int count_user_input = 0;
 
 	// string to hold the user`s input
@@ -58,7 +58,7 @@ protected:
 	friend class King;
 
 
-	// friend classes pointers
+	// piece classes pointers
 	Pawn* pawn = nullptr;
 	Rook* rook = nullptr;
 	Knight* knight = nullptr;
@@ -87,11 +87,11 @@ protected:
 	bool is_game_loaded;
 
 
-	// boolean to hold true if the game was quited/ false if not
+	// boolean to hold true if the game was exited/ false if not
 	bool is_game_quit;
 	
 	
-	// integer to temporarily hold the current piece/empty square
+	// integer to temporarily hold the current piece/empty square set to 0
 	int current_piece = 0;
 
 
@@ -103,17 +103,17 @@ public:
 	CGame();
 	
 
-	// setting the board with it`s initial pieces
+	// setting the initial board
 	void set_board();
 
-	// clearing the board before set up if new game is selected
+	// clearing the board
 	void clear_board();
 
 
 	// overriding the move_piece method defined in Board.h including is_in_check, is_checkmate and is_stalemate
 	virtual void move_piece(int startRow, int startCol, int endRow, int endCol) override;
 
-	// overriding run method defined in Board.h
+	// overriding game_play method defined in Board.h
 	virtual void game_play() override;
 
 	// returns integer to the piece if on the position, 0 otherwise
@@ -132,22 +132,22 @@ public:
 	// returns true if checkmate, false if not
 	bool is_checkmate();
 
-	// validates whether the game is over
+	// overriding is_game_over method defined in Board.h
 	virtual bool is_game_over() override;
 
 	// prints the board
 	void print_board();
 
-	// prints the minimized board in the game_play() method
+	// prints minimized version of the board in the game_play() method
 	void menu_board();
 
-	// promts the user to select whether new game will be played
+	// overriding new_game method defined in Board.h 
 	virtual bool new_game() override;
 
-	// validates whether the game was saved successfully
+	// overriding save_game method defined in Board.h 
 	virtual bool save_game() override;
 
-	// validates whether the game was loaded successfully
+	// overriding load_game method defined in Board.h
 	virtual bool load_game() override;
 
 	// destructor
