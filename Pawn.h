@@ -1,7 +1,7 @@
 #ifndef PAWN_H
 #define PAWN_H
 
-// including header file Piece.h
+// including Piece.h
 #include "Piece.h"
 
 
@@ -10,10 +10,10 @@ class Pawn :public Piece
 
 private:
 
-	// integer to hold the owner
+	// integer to hold the owner set to 0
 	int owner_pawn = 0;
 
-	// integer to hold the id
+	// integer to hold the id set to 0
 	int piece_id_pawn = 0;
 
 
@@ -22,21 +22,21 @@ public:
 
 
 
-	// constructor with parameters for the owner color and the piece id
+	// constructor with parameters for the owner and the piece id
 	Pawn(int owner, int piece_id);
 
 
-	// validating the pawns move
+	// overriding is_move_valid method defined in Piece.h
 	bool is_move_valid(int startRow, int startCol, int endRow, int endCol, int board[8][8]) override;
 
-	// validating en pasant move
+	// method for en pasant move validation
 	bool en_passant(int startRow, int startCol, int endRow, int endCol, int board[8][8]);
 	
 	// returning is_en_passant true/false
 	bool is_pawn_en_passant();
 
 
-	// validating piece promotion
+	// method for piece promotion validation
 	bool pawn_promotion(int startRow, int startCol, int endRow, int endCol, int board[8][8]);
 
 };
