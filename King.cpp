@@ -267,7 +267,7 @@ bool King::castling(int startRow, int startCol, int endRow, int endCol, int boar
 			// if the right castling squares valid
 			if (are_right_castling_sqs_valid(get_owner(), startRow, startCol, board))
 			{
-
+				// moving the pieces
 				board[endRow - 1][endCol - 1] = 6;
 				board[endRow - 1][endCol] = 0;
 				board[endRow - 1][endCol - 2] = 2;
@@ -282,7 +282,7 @@ bool King::castling(int startRow, int startCol, int endRow, int endCol, int boar
 			// if the left castling squares are valid
 			if (are_left_castling_sqs_valid(get_owner(), startRow, startCol, board))
 			{
-
+				// moving the pieces
 				board[endRow - 1][endCol - 1] = 6;
 				board[endRow - 1][endCol - 3] = 0;
 				board[endRow - 1][endCol] = 2;
@@ -303,7 +303,7 @@ bool King::castling(int startRow, int startCol, int endRow, int endCol, int boar
 			// if the right castling squares are valid
 			if (are_right_castling_sqs_valid(1, startRow, startCol, board))
 			{
-
+				// moving the pieces
 				board[endRow - 1][endCol - 1] = 12;
 				board[endRow - 1][endCol] = 0;
 				board[endRow - 1][endCol - 2] = 8;
@@ -318,7 +318,7 @@ bool King::castling(int startRow, int startCol, int endRow, int endCol, int boar
 			// if the left caslitng squares are valid
 			if (are_left_castling_sqs_valid(1, startRow, startCol, board))
 			{
-
+				// moving the pieces
 				board[endRow - 1][endCol - 1] = 12;
 				board[endRow - 1][endCol - 3] = 0;
 				board[endRow - 1][endCol] = 8;
@@ -383,7 +383,7 @@ bool King::are_right_castling_sqs_valid(int owner, int startRow, int startCol, i
 bool King::are_right_castling_sqs_in_check(int owner, int startRow, int startCol, int board[8][8])
 {
 
-	// integer to hold the side of the castling
+	// integer to hold the side of the castling set to 1
 	int right = 1;
 
 	// if it is white`s turn
@@ -457,7 +457,7 @@ bool King::are_left_castling_sqs_valid(int owner, int startRow, int startCol, in
 
 bool King::are_left_castling_sqs_in_check(int owner, int startRow, int startCol, int board[8][8])
 {
-	// integer to hold the side of the caslting
+	// integer to hold the side of the caslting set to 0
 	int left = 0;
 
 	// if it is white`s turn
@@ -529,7 +529,7 @@ bool King::is_sq1_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int b_rook_n_row = 0;
 
 
-						// validating whether the lower squares on the column are empty
+						// validating if the lower squares on the column are empty
 						if (i < sqRow && j == sqCol)
 						{
 							b_rook_n_row = sqRow - i;
@@ -698,7 +698,7 @@ bool King::is_sq1_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int b_queen_n_rows = 0;
 
 
-						// validating whether the lower squares on the column are empty
+						// validating if the lower squares on the column are empty
 						if (i < sqRow && j == sqCol)
 						{
 							b_queen_n_rows = sqRow - i;
@@ -857,7 +857,7 @@ bool King::is_sq1_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int b_rook_n_row = 0;
 
 
-						// validating whether the lower squares on the column are empty
+						// validating if the lower squares on the column are empty
 						if (i < sqRow && j == sqCol)
 						{
 							b_rook_n_row = sqRow - i;
@@ -1027,7 +1027,7 @@ bool King::is_sq1_in_check(int owner, int side, int sqRow, int sqCol, int board[
 
 
 
-						// validating whether the lower squares on the column are empty
+						// validating if the lower squares on the column are empty
 						if (i < sqRow && j == sqCol)
 						{
 							b_queen_n_rows = sqRow - i;
@@ -1195,7 +1195,7 @@ bool King::is_sq1_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int w_rook_n_row = 0;
 
 
-						// validating whether the upper squares on the column are empty
+						// validating if the upper squares on the column are empty
 						if (i > sqRow && j == sqCol)
 						{
 							w_rook_n_row = i - sqRow;
@@ -1360,7 +1360,7 @@ bool King::is_sq1_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int w_queen_n_rows = 0;
 
 
-						// validating whether the upper squares on the column are empty
+						// validating if the upper squares on the column are empty
 						if (i > sqRow && j == sqCol)
 						{
 							w_queen_n_rows = i - sqRow;
@@ -1518,7 +1518,7 @@ bool King::is_sq1_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int w_rook_n_row = 0;
 
 
-						// validating whether the upper squares on the column are empty
+						// validating if the upper squares on the column are empty
 						if (i > sqRow && j == sqCol)
 						{
 							w_rook_n_row = i - sqRow;
@@ -1685,7 +1685,7 @@ bool King::is_sq1_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int w_queen_n_rows = 0;
 
 
-						// validating whether the upper squares on the column are empty
+						// validating if the upper squares on the column are empty
 						if (i > sqRow && j == sqCol)
 						{
 							w_queen_n_rows = i - sqRow;
@@ -1857,7 +1857,7 @@ bool King::is_sq2_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int b_rook_n_row = 0;
 
 
-						// validating whether the lower squares on the column are empty
+						// validating if the lower squares on the column are empty
 						if (i < sqRow && j == sqCol)
 						{
 
@@ -2025,7 +2025,7 @@ bool King::is_sq2_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int b_queen_n_rows = 0;
 
 
-						// validating whether the lower squares on the column are empty
+						// validating if the lower squares on the column are empty
 						if (i < sqRow && j == sqCol)
 						{
 							b_queen_n_rows = sqRow - i;
@@ -2182,7 +2182,7 @@ bool King::is_sq2_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int b_rook_n_row = 0;
 
 
-						// validating whether the lower squares on the column are empty
+						// validating if the lower squares on the column are empty
 						if (i < sqRow && j == sqCol)
 						{
 							b_rook_n_row = sqRow - i;
@@ -2349,7 +2349,7 @@ bool King::is_sq2_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int b_queen_n_rows = 0;
 
 
-						// validating whether the lower squares on the column are empty
+						// validating if the lower squares on the column are empty
 						if (i < sqRow && j == sqCol)
 						{
 							b_queen_n_rows = sqRow - i;
@@ -2511,7 +2511,7 @@ bool King::is_sq2_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int w_rook_n_row = 0;
 
 
-						// validating whether the upper squares on the column are empty
+						// validating if the upper squares on the column are empty
 						if (i > sqRow && j == sqCol)
 						{
 							w_rook_n_row = i - sqRow;
@@ -2834,7 +2834,7 @@ bool King::is_sq2_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int w_rook_n_row = 0;
 
 
-						// validating whether the upper squares on the column are empty
+						// validating if the upper squares on the column are empty
 						if (i > sqRow && j == sqCol)
 						{
 							w_rook_n_row = i - sqRow;
@@ -3002,7 +3002,7 @@ bool King::is_sq2_in_check(int owner, int side, int sqRow, int sqCol, int board[
 						int w_queen_n_rows = 0;
 
 
-						// validating whether the upper squares on the column are empty
+						// validating if the upper squares on the column are empty
 						if (i > sqRow && j == sqCol)
 						{
 							w_queen_n_rows = i - sqRow;
