@@ -32,7 +32,7 @@ void CGame::set_board()
 	}
 
 
-	// placeing the black pieces on the board
+	// placing the black pieces on the board
 	board[0][0] = b_rook;
 	board[0][1] = b_knight;
 	board[0][2] = b_bishop;
@@ -73,7 +73,7 @@ void CGame::move_piece(int startRow, int startCol, int endRow, int endCol)
 	if (board[startRow - 1][startCol - 1] == 1 || board[startRow - 1][startCol - 1] == 7)
 	{
 
-		// validating pawns promotion
+		// validating pawn promotion
 		if (pawn->pawn_promotion(startRow, startCol, endRow, endCol, board))
 		{
 			board[startRow - 1][startCol - 1] = sq_empty;
@@ -83,6 +83,7 @@ void CGame::move_piece(int startRow, int startCol, int endRow, int endCol)
 		{
 			
 			board[startRow - 1][startCol - 1] = sq_empty;
+			// adding the captured piece to last_move_white
 			this->last_move_white += "_/_captures_black_'p'_awn";
 			board[endRow - 1][endCol - 1] = get_piece_id();
 			
@@ -91,6 +92,7 @@ void CGame::move_piece(int startRow, int startCol, int endRow, int endCol)
 		else if (board[startRow - 1][startCol - 1] == 7 && pawn->is_pawn_en_passant())
 		{
 			board[startRow - 1][startCol - 1] = sq_empty;
+			// adding the captured piece to last_move_black
 			this->last_move_black += "_/_captures_white_'P'_awn";
 
 			board[endRow - 1][endCol - 1] = get_piece_id();
@@ -100,53 +102,77 @@ void CGame::move_piece(int startRow, int startCol, int endRow, int endCol)
 		else
 		{
 			board[startRow - 1][startCol - 1] = sq_empty;
-
+			
+			// if white pawn is captured
 			if (board[endRow - 1][endCol - 1] == 1)
 			{
+				// adding the captured piece to last_move_black
 				this->last_move_black += "_/_captures_white_'P'_awn";
 			}
+			// if white rook is captured
 			else if (board[endRow - 1][endCol - 1] == 2)
 			{
+				// adding the captured piece to last_move_black
 				this->last_move_black += "_/_captures_white_'R'_ook";
 			}
+			// if white knight is captured
 			else if (board[endRow - 1][endCol - 1] == 3)
 			{
+				// adding the captured piece to last_move_black
 				this->last_move_black += "_/_captures_white_K_'N'_ight";
 			}
+			// if white bishop is captured
 			else if (board[endRow - 1][endCol - 1] == 4)
 			{
+				// adding the captured piece to last_move_black
 				this->last_move_black += "_/_captures_white_'B'_ishop";
 			}
+			// if white queen is captured
 			else if (board[endRow - 1][endCol - 1] == 5)
 			{
+				// adding the captured piece to last_move_black
 				this->last_move_black += "_/_captures_white_'Q'_ueen";
 			}
+			// if white king is captured
 			else if (board[endRow - 1][endCol - 1] == 6)
 			{
+				// adding the captured piece to last_move_black
 				this->last_move_black += "_/_captures_white_'K'_intg";
 			}
+			// if black pawn is captured
 			else if (board[endRow - 1][endCol - 1] == 7)
 			{
+				// adding the captured piece to last_move_white
 				this->last_move_white += "_/_captures_black_'p'_awn";
 			}
+			// if black rook is captured
 			else if (board[endRow - 1][endCol - 1] == 8)
 			{
+				// adding the captured piece to last_move_white
 				this->last_move_white += "_/_captures_black_'r'_ook";
 			}
+			// if black knight is captured
 			else if (board[endRow - 1][endCol - 1] == 9)
 			{
+				// adding the captured piece to last_move_white
 				this->last_move_white += "_/_captures_black_k_'n'_ight";
 			}
+			// if black bishop is captured
 			else if (board[endRow - 1][endCol - 1] == 10)
 			{
+				// adding the captured piece to last_move_white
 				this->last_move_white += "_/_captures_black_'b'_ishop";
 			}
+			// if black queen is captured
 			else if (board[endRow - 1][endCol - 1] == 11)
 			{
+				// adding the captured piece to last_move_white
 				this->last_move_white += "_/_captures_black_'q'_een";
 			}
+			// if black king is captured
 			else if (board[endRow - 1][endCol - 1] == 12)
 			{
+				// adding the captured piece to last_move_white
 				this->last_move_white += "_/_captures black_'k'_ing";
 			}
 
@@ -181,53 +207,76 @@ void CGame::move_piece(int startRow, int startCol, int endRow, int endCol)
 
 		board[startRow - 1][startCol - 1] = sq_empty;
 
-
+		// if white pawn is captured
 		if (board[endRow - 1][endCol - 1] == 1)
 		{
+			// adding the captured piece to last_move_black
 			this->last_move_black += "_/_captures_white_'P'_awn";
 		}
+		// if white rook is captured
 		else if (board[endRow - 1][endCol - 1] == 2)
 		{
+			// adding the captured piece to last_move_black
 			this->last_move_black += "_/_captures_white_'R'_ook";
 		}
+		// if white knight is captured
 		else if (board[endRow - 1][endCol - 1] == 3)
 		{
+			// adding the captured piece to last_move_black
 			this->last_move_black += "_/_captures_white_K_'N'_ight";
 		}
+		// if white bishop is captured
 		else if (board[endRow - 1][endCol - 1] == 4)
 		{
+			// adding the captured piece to last_move_black
 			this->last_move_black += "_/_captures_white_'B'_ishop";
 		}
+		// if white queen is captured
 		else if (board[endRow - 1][endCol - 1] == 5)
 		{
+			// adding the captured piece to last_move_black
 			this->last_move_black += "_/_captures_white_'Q'_ueen";
 		}
+		// if white king is captured
 		else if (board[endRow - 1][endCol - 1] == 6)
 		{
+			// adding the captured piece to last_move_black
 			this->last_move_black += "_/_captures_white_'K'_intg";
 		}
+		// if black pawn is captured
 		else if (board[endRow - 1][endCol - 1] == 7)
 		{
+			// adding the captured piece to last_move_white
 			this->last_move_white += "_/_captures_black_'p'_awn";
 		}
+		// if black rook is captured
 		else if (board[endRow - 1][endCol - 1] == 8)
 		{
+			// adding the captured piece to last_move_white
 			this->last_move_white += "_/_captures_black_'r'_ook";
 		}
+		// if black knight is captured
 		else if (board[endRow - 1][endCol - 1] == 9)
 		{
+			// adding the captured piece to last_move_white
 			this->last_move_white += "_/_captures_black_k_'n'_ight";
 		}
+		// if black bishop is captured
 		else if (board[endRow - 1][endCol - 1] == 10)
 		{
+			// adding the captured piece to last_move_white
 			this->last_move_white += "_/_captures_black_'b'_ishop";
 		}
+		// if black queen is captured
 		else if (board[endRow - 1][endCol - 1] == 11)
 		{
+			// adding the captured piece to last_move_last
 			this->last_move_white += "_/_captures_black_'q'_een";
 		}
+		// if black king is captured
 		else if (board[endRow - 1][endCol - 1] == 12)
 		{
+			//adding the captured piece to last_move_white
 			this->last_move_white += "_/_captures black_'k'_ing";
 		}
 
@@ -330,7 +379,7 @@ int CGame::get_piece(int row, int col)
 
 bool CGame::is_in_check()
 {
-	// integers for 'x' and 'y' King`s coordiantes
+	// integers for the kings 'x' and 'y' coordiantes
 	int w_xK = 0, w_yK = 0, b_xK = 0, b_yK = 0;
 
 	// boolean for the empty squares
@@ -391,7 +440,7 @@ bool CGame::is_in_check()
 					int b_rook_n_col = 0;
 
 
-					// validating whether the upper squares on the column are empty
+					// validating if the upper squares on the column are empty
 					if (i > w_xK && j == w_yK)
 					{
 						b_rook_n_row = i - w_xK;
@@ -435,7 +484,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the lower squares on the column are empty
+					// validating if the lower squares on the column are empty
 					if (i < w_xK && j == w_yK)
 					{
 						b_rook_n_row = w_xK - i;
@@ -473,7 +522,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the right squares on the row are empty
+					// validating if the right squares on the row are empty
 					if (i == w_xK && j < w_yK)
 					{
 						b_rook_n_col = w_yK - j;
@@ -512,7 +561,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the left squares on the row are empty
+					// validating if the left squares on the row are empty
 					if (i == w_xK && j > w_yK)
 					{
 						b_rook_n_col = i - w_yK;
@@ -791,7 +840,7 @@ bool CGame::is_in_check()
 					int b_queen_n_cols = 0;
 
 
-					// validating whether the upper squares on the column are empty
+					// validating if the upper squares on the column are empty
 					if (i > w_xK && j == w_yK)
 					{
 						b_queen_n_rows = i - w_xK;
@@ -831,7 +880,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the lower squares on the column are empty
+					// validating if the lower squares on the column are empty
 					if (i < w_xK && j == w_yK)
 					{
 						b_queen_n_rows = w_xK - i;
@@ -869,7 +918,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the right squares on the row are empty
+					// validating if the right squares on the row are empty
 					if (i == w_xK && j < w_yK)
 					{
 						b_queen_n_cols = w_yK - i;
@@ -908,7 +957,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the left squares on the row are empty
+					// validating if the left squares on the row are empty
 					if (i == w_xK && j > w_yK)
 					{
 						b_queen_n_cols = i - w_yK;
@@ -1167,7 +1216,7 @@ bool CGame::is_in_check()
 
 
 
-					// validating whether the upper squares on the column are empty
+					// validating if the upper squares on the column are empty
 					if (i > b_xK && j == b_yK)
 					{
 						w_rook_n_row = i - b_xK;
@@ -1211,7 +1260,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the lower squares on the column are empty
+					// validating if the lower squares on the column are empty
 					if (i < b_xK && j == b_yK)
 					{
 						w_rook_n_row = b_xK - i;
@@ -1249,7 +1298,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the right squares on the row are empty
+					// validating if the right squares on the row are empty
 					if (i == b_xK && j < b_yK)
 					{
 						w_rook_n_col = b_yK - j;
@@ -1288,7 +1337,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the left squares on the row are empty
+					// validating if the left squares on the row are empty
 					if (i == b_xK && j > b_yK)
 					{
 						w_rook_n_col = j - b_yK;
@@ -1566,7 +1615,7 @@ bool CGame::is_in_check()
 
 
 
-					// validating whether the upper squares on the column are empty
+					// validating if the upper squares on the column are empty
 					if (i > b_xK && j == b_yK)
 					{
 						w_queen_n_rows = i - b_xK;
@@ -1606,7 +1655,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the lower squares on the column are empty
+					// validating if the lower squares on the column are empty
 					if (i < b_xK && j == b_yK)
 					{
 						w_queen_n_rows = b_xK - i;
@@ -1644,7 +1693,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the right squares on the row are empty
+					// validating if the right squares on the row are empty
 					if (i == b_xK && j < b_yK)
 					{
 						w_queen_n_cols = b_yK - j;
@@ -1682,7 +1731,7 @@ bool CGame::is_in_check()
 					}
 
 
-					// validating whether the left squares on the row are empty
+					// validating if the left squares on the row are empty
 					if (i == b_xK && j > b_yK)
 					{
 						w_queen_n_cols = j - b_yK;
@@ -1905,7 +1954,7 @@ bool CGame::is_in_check()
 bool CGame::is_stalemate()
 {
 	
-	// integers to hold the king`s position
+	// integers kings 'x' and 'y' coordinates
 	int w_xK = 0, w_yK = 0, b_xK = 0, b_yK = 0;
 	
 	
@@ -2372,7 +2421,7 @@ bool CGame::is_stalemate()
 bool CGame::is_checkmate()
 {
 
-	// integers to hold the king`s position
+	// integers for the kings 'x' and 'y' coordinates
 	int w_xK = 0, w_yK = 0, b_xK = 0, b_yK = 0;
 		
 
@@ -2882,6 +2931,7 @@ void CGame::game_play()
 	
 
 	cout << "\n\tThe main board: \n";
+	
 	// displaying the main board
 	menu_board();
 
@@ -2979,12 +3029,12 @@ void CGame::game_play()
 			cout << "\n\n\t\tNow select between the following: \n";
 			cout << "\n\t\tNew (G)ame           ";
 			cout << "\n\t\t(L)oad from file     ";
-			cout << "\n\t\t(Q)uit               ";
+			cout << "\n\t\t(Q)uit game          ";
 
 			cout << "\n\t> ";
 			cin >> choice;
 
-
+			// validating the choice
 			while (toupper(choice) != 'G' && toupper(choice) != 'L' && 
 				   toupper(choice) != 'Q')
 			{
@@ -2994,9 +3044,10 @@ void CGame::game_play()
 
 		}
 
-		
+		// setting is_new_game to true
 		is_new_game = true;
 
+		
 		// the inner game-loop
 
 		// if new game is selected
@@ -3035,7 +3086,7 @@ void CGame::game_play()
 				while (!game_over)
 				{
 
-					// validating whether the game is over, assigning the result to game_over
+					// validating if the game is over, assigning the result to game_over
 					if (is_game_over())
 					{
 						this->game_over = true;
@@ -3136,35 +3187,51 @@ void CGame::game_play()
 								// switching user_input[0], assigning the value to start_col_p
 								switch (toupper(user_input[0]))
 								{
+								// if the column is 'A'
 								case 'A':
+									// setting start_col_p to A
 									this->start_col_p = A;
 									break;
 
+								// if the column is 'B'
 								case 'B':
+									// setting start_col_p to B
 									this->start_col_p = B;
 									break;
 
+								// if the column is 'C'
 								case 'C':
+									// setting start_col_p to C
 									this->start_col_p = C;
 									break;
 
+								// if the column is 'D'
 								case 'D':
+									// setting start_col_p to D
 									this->start_col_p = D;
 									break;
 
+								// if the column is 'E'
 								case 'E':
+									// setting start_col_p to E
 									this->start_col_p = E;
 									break;
 
+								// if the column is 'F'
 								case 'F':
+									// setting start_col_p to F
 									this->start_col_p = F;
 									break;
 
+								// if the column is 'G'
 								case 'G':
+									// setting start_col_p to G
 									this->start_col_p = G;
 									break;
 
+								// if the column is 'H'
 								case 'H':
+									// setting start_col_p to H
 									this->start_col_p = H;
 									break;
 
@@ -3174,41 +3241,57 @@ void CGame::game_play()
 								// swithing user_input[1], assigning the value to start_row_p
 								switch (user_input[1])
 								{
+								// if the row is '1'
 								case '1':
+									// setting start_row_p to 8
 									this->start_row_p = 8;
 									break;
 
+								// if the row is '2'
 								case '2':
+									// setting start_row_p to 7
 									this->start_row_p = 7;
 									break;
 
+								// if the row is '3'
 								case '3':
+									// setting start_row_p to 6
 									this->start_row_p = 6;
 									break;
 
+								// if the row is '4'
 								case '4':
+									// setting start_row_p to 5
 									this->start_row_p = 5;
 									break;
 
+								// if the row is '5'
 								case '5':
+									// setting start_row_p to 4
 									this->start_row_p = 4;
 									break;
 
+								// if the row is '6'
 								case '6':
+									// setting start_row_p to 3
 									this->start_row_p = 3;
 									break;
 
+								// if the row is '7'
 								case '7':
+									// setting start_row_p to 2
 									this->start_row_p = 2;
 									break;
 
+								// if the row is '8'
 								case '8':
+									// setting start_row_p to 1
 									this->start_row_p = 1;
 									break;
 								}
 							}
 
-							// validating whether the game was saved or exited
+							// validating if the game was saved
 							if (is_game_saved)
 							{
 								this->game_over = false;
@@ -3217,6 +3300,7 @@ void CGame::game_play()
 								this->current_turn = white_owner;
 	
 							}
+							// validating if the game was exited
 							else if (is_game_quit)
 							{
 								this->selected_start_sq = true;
@@ -3256,33 +3340,45 @@ void CGame::game_play()
 
 							switch (get_piece(start_row_p, start_col_p))
 							{
+							// if the piece is a white pawn
 							case 1:
 								cout << "\n\t'P' awn";
+								// adding the piece to last_move_white
 								this->last_move_white += "'P'_awn_to_";
 								break;
 
+							// if the piece is a white rook
 							case 2:
 								cout << "\n\t'R' ook";
+								// adding the piece to last_move_white
 								this->last_move_white += "'R'_ook_to_";
 								break;
 
+							// if the piece is a white knight
 							case 3:
 								cout << "\n\tK 'N' inght";
+								// adding the piece to last_move_white
 								this->last_move_white += "K_'N'_inght_to_";
 								break;
 
+							// if the piece is a white bishop
 							case 4:
 								cout << "\n\t'B' ishop";
+								// adding the piece to ast_move_white
 								this->last_move_white += "'B'_ishop_to_";
 								break;
 
+							// if the piece is a white queen
 							case 5:
 								cout << "\n\t'Q' ueen";
+								// adding the piece to last_move_white
 								this->last_move_white += "'Q'_ueen_to_";
 								break;
 
+							// if the piece is a white king
 							case 6:
 								cout << "\n\t'K' ing";
+								// adding the piece to last_move_white
 								this->last_move_white += "'K'_ing_to_";
 								break;
 							}
@@ -3341,43 +3437,67 @@ void CGame::game_play()
 								// switching user_input[0], assigning the valur to end_col_p
 								switch (toupper(user_input[0]))
 								{
+								// if the column is 'A'
 								case 'A':
+									// setting end_col_p to A
 									end_col_p = A;
+									// adding the column to last_move_white
 									this->last_move_white += "A";
 									break;
 
+								// if the column is 'B'
 								case 'B':
+									// setting end_col_p to B
 									end_col_p = B;
+									// adding the column to last_move_white
 									this->last_move_white += "B";
 									break;
 
+								// if the column is 'C'
 								case 'C':
+									// setting end_col_p to C
 									end_col_p = C;
+									// adding the column to last_move_white
 									this->last_move_white += "C";
 									break;
 
+								// if the column is 'D'
 								case 'D':
+									// setting end_col_p to D
 									end_col_p = D;
+									// adding the column to last_move_white
 									this->last_move_white += "D";
 									break;
 
+								// if the column is 'E'
 								case 'E':
+									// setting end_col_p to E
 									end_col_p = E;
+									// adding the column to last_move_white
 									this->last_move_white += "E";
 									break;
 
+								// if the column is 'F'
 								case 'F':
+									// setting end_col_p to F
 									end_col_p = F;
+									// adding the column to last_move_white
 									this->last_move_white += "F";
 									break;
 
+								// if the column is 'G'
 								case 'G':
+									// setting end_col_p to G
 									end_col_p = G;
+									// adding the column to last_move_white
 									this->last_move_white += "G";
 									break;
 
+								// if the column is 'H'
 								case 'H':
+									// setting end_col_p to H
 									end_col_p = H;
+									// adding the column to last_move_white
 									this->last_move_white += "H";
 									break;
 
@@ -3387,49 +3507,73 @@ void CGame::game_play()
 								// switching user_input[1], assigning the value to end_row_p
 								switch (user_input[1])
 								{
+								// if the row is '1'
 								case '1':
+									// setting end_row_p to 8
 									end_row_p = 8;
+									// adding the row to last_move_white
 									this->last_move_white += "1";
 									break;
 
+								// if the row is '2'
 								case '2':
+									// setting end_row_p to 7
 									end_row_p = 7;
+									// adding the row to last_move_white
 									this->last_move_white += "2";
 									break;
 
+								// if the row is '3'
 								case '3':
+									// setting end_row_p to 6
 									end_row_p = 6;
+									// adding the row to last_move_white
 									this->last_move_white += "3";
 									break;
 
+								// if the row is '4'
 								case '4':
+									// setting end_row_p to 5
 									end_row_p = 5;
+									// adding the row to last_move_white
 									this->last_move_white += "4";
 									break;
 
+								// if the row is '5'
 								case '5':
+									// setting end_row_p to 4
 									end_row_p = 4;
+									// adding the row to last_move_white
 									this->last_move_white += "5";
 									break;
 
+								// if the row is '6'
 								case '6':
+									// setting end_row_p to 3
 									end_row_p = 3;
+									// adding the row to last_move_white
 									this->last_move_white += "6";									
 									break;
 
+								// if the row is '7'
 								case '7':
+									// setting end_row_p to 2
 									end_row_p = 2;
+									// adding the row to last_move_white
 									this->last_move_white += "7";
 									break;
 
+								// if the rowe is '8'
 								case '8':
+									// setting end_row_p to 1
 									end_row_p = 1;
+									// adding the row to last_move_white
 									this->last_move_white += "8";
 									break;
 								}
 							}
 
-							// validating whether the game was saved or exited
+							// validating if the game was saved
 							if (is_game_saved)
 							{
 								this->game_over = false;
@@ -3438,6 +3582,7 @@ void CGame::game_play()
 								this->current_turn = white_owner;
 
 							}
+							// validating if the game was exited
 							else if (is_game_quit)
 							{
 								this->selected_start_sq = true;
@@ -3689,35 +3834,51 @@ void CGame::game_play()
 								// switching user_input[0], assigning the value to start_col_p
 								switch (toupper(user_input[0]))
 								{
+								// if the column is 'A'
 								case 'A':
+									// setting start_col_p to A
 									this->start_col_p = A;
 									break;
 
+								// if the column is 'B'
 								case 'B':
+									// setting start_col_p to B
 									this->start_col_p = B;
 									break;
 
+								// if the column is 'C'
 								case 'C':
+									// setting start_col_p to C
 									this->start_col_p = C;
 									break;
 
+								// if the column is 'D'
 								case 'D':
+									// setting start_col_p to D
 									this->start_col_p = D;
 									break;
 
+								// if the column is 'E'
 								case 'E':
+									// setting start_col_p to E
 									this->start_col_p = E;
 									break;
 
+								// if the column is 'F'
 								case 'F':
+									// setting start_col_p to F
 									this->start_col_p = F;
 									break;
 
+								// if the column is 'G'
 								case 'G':
+									// setting start_col_p to G
 									this->start_col_p = G;
 									break;
 
+								// if the column is 'H'
 								case 'H':
+									// setting start_col_p to H
 									this->start_col_p = H;
 									break;
 
@@ -3727,41 +3888,57 @@ void CGame::game_play()
 								// swithing user_input[1], assigning the value to start_row_p
 								switch (user_input[1])
 								{
+								// if the row is '1'
 								case '1':
+									// setting start_row_p to 8
 									this->start_row_p = 8;
 									break;
 
+								// if the row is '2'
 								case '2':
+									// setting start_row_p to 7
 									this->start_row_p = 7;
 									break;
 
+								// if the row is '3'
 								case '3':
+									// setting start_row_p to 6
 									this->start_row_p = 6;
 									break;
 
+								// if the row is '4'
 								case '4':
+									// setting start_row_p to 5
 									this->start_row_p = 5;
 									break;
 
+								// if the row is '5'
 								case '5':
+									// setting start_row_p to 4
 									this->start_row_p = 4;
 									break;
 
+								// if the row is '6'
 								case '6':
+									// setting start_row_p to 3
 									this->start_row_p = 3;
 									break;
 
+								// if the row is '7'
 								case '7':
+									// setting start_row_p to 2
 									this->start_row_p = 2;
 									break;
 
+								// if the row is '8'
 								case '8':
+									// setting start_row_p to 1
 									this->start_row_p = 1;
 									break;
 								}
 							}
 
-							// validating whether the game was saved or exited
+							// validating if the game was saved
 							if (is_game_saved)
 							{
 								this->game_over = false;
@@ -3769,6 +3946,7 @@ void CGame::game_play()
 								this->selected_end_sq = true;
 								this->current_turn = black_owner;
 							}
+							// validating if the game was exited
 							else if (is_game_quit)
 							{
 								this->selected_start_sq = true;
@@ -3806,33 +3984,45 @@ void CGame::game_play()
 
 							switch (get_piece(start_row_p, start_col_p))
 							{
+							// if the piece is a black pawn
 							case 7:
 								cout << "\n\t'p'_awn";
+								// adding the piece to last_move_black
 								this->last_move_black += "'p'_awn_to_";
 								break;
 
+							// if the piece is a black rook
 							case 8:
 								cout << "\n\t'r' ook";
+								// adding the piece to last_move_black
 								this->last_move_black += "'r'_ook_to_";
 								break;
 
+							// if the piece is a black knight
 							case 9:
 								cout << "\n\tk 'n' inght";
+								// adding the piece to last_move_black
 								this->last_move_black += "k_'n'_inght_to_";
 								break;
 
+							// if the piece is a black bishop
 							case 10:
 								cout << "\n\t'b' ishop";
+								// adding the piece to last_move_black
 								this->last_move_black += "'b'_ishop_to_";
 								break;
 
+							// if the piece is a black queen
 							case 11:
 								cout << "\n\t'q' ueen";
+								// adding the piece to last_move_black
 								this->last_move_black += "'q'_ueen_to_";
 								break;
 
+							// if the piece is a black king
 							case 12:
 								cout << "\n\t'k' ing";
+								// adding the piece to last_move_black
 								this->last_move_black += "'k'_ing_to_";
 								break;
 							}
@@ -3891,43 +4081,67 @@ void CGame::game_play()
 								// switching user_input[0], assigning the valur to end_col_p
 								switch (toupper(user_input[0]))
 								{
+								// if the column is 'A'
 								case 'A':
+									// setting end_col_p to A
 									end_col_p = A;
+									// addiing the column to last_move_black
 									this->last_move_black += "A";
 									break;
 
+								// if the column is 'B'
 								case 'B':
+									// setting end_col_p to B
 									end_col_p = B;
+									// adding the column to last_move_black
 									this->last_move_black += "B";
 									break;
 
+								// if the column is 'C'
 								case 'C':
+									// setting end_col_p to C
 									end_col_p = C;
+									// adding the column to last_move_black
 									this->last_move_black += "C";
 									break;
 
+								// if the column is 'D'
 								case 'D':
+									// setting end_col_p to D
 									end_col_p = D;
+									// adding the column to last_move_black
 									this->last_move_black += "D";
 									break;
 
+								// if the column is 'E'
 								case 'E':
+									// setting end_col_p to E
 									end_col_p = E;
+									// adding the column to last_move_black
 									this->last_move_black += "E";
 									break;
 
+								// if the column is 'F'
 								case 'F':
+									// setting end_col_p to F
 									end_col_p = F;
+									// adding the column to last_move_black
 									this->last_move_black += "F";
 									break;
 
+								// if the column is 'G'
 								case 'G':
+									// setting end_col_p to G
 									end_col_p = G;
+									// adding the column to last_move_black
 									this->last_move_black += "G";
 									break;
 
+								// if the column is 'H'
 								case 'H':
+									// setting end_col_p to H
 									end_col_p = H;
+									// adding the column to last_move_black
 									this->last_move_black += "H";
 									break;
 
@@ -3937,43 +4151,67 @@ void CGame::game_play()
 								// switching user_input[1], assigning the value to end_row_p
 								switch (user_input[1])
 								{
+								// if the row is '1'
 								case '1':
+									// setting end_row_p to 8
 									end_row_p = 8;
+									// adding the row to last_move_black
 									this->last_move_black += "1";
 									break;
 
+								// if the row is '2'
 								case '2':
+									// setting end_row_p to 7
 									end_row_p = 7;
+									// adding the row to last_move_black
 									this->last_move_black += "2";
 									break;
 
+								// if the row is '3'
 								case '3':
+									// setting end_row_p to 6
 									end_row_p = 6;
+									// adding the row to last_move_black
 									this->last_move_black += "4";
 									break;
 
+								// if the row is '4'
 								case '4':
+									// setting end_row_p to 5
 									end_row_p = 5;
+									// adding the row to last_move_black
 									this->last_move_black += "4";
 									break;
 
+								// if the row is '5'
 								case '5':
+									// setting end_row_p to 4
 									end_row_p = 4;
+									// adding the row to last_move_black
 									this->last_move_black += "5";
 									break;
 
+								// if the row is '6'
 								case '6':
+									// setting end_row_p to 3
 									end_row_p = 3;
+									// adding the ow to last_move_black
 									this->last_move_black += "6";
 									break;
 
+								// if the row is '7'
 								case '7':
+									// setting end_row_p to 2
 									end_row_p = 2;
+									// adding the row to last_move_black
 									this->last_move_black += "7";
 									break;
 
+								// if the row is '8'
 								case '8':
+									// setting end_row_p to 1
 									end_row_p = 1;
+									// adding the row to last_move_black
 									this->last_move_black += "8";
 									break;
 								}
@@ -3981,7 +4219,7 @@ void CGame::game_play()
 
 
 
-							// validating whether the game was saved or exited
+							// validating if the game was saved 
 							if (is_game_saved)
 							{
 								this->game_over = false;
@@ -3990,6 +4228,7 @@ void CGame::game_play()
 								this->current_turn = black_owner;
 
 							}
+							// validating if the game was exited
 							else if (is_game_quit)
 							{
 								this->selected_start_sq = true;
@@ -4150,7 +4389,7 @@ void CGame::game_play()
 			}
 
 		}
-		// if load game is selected
+		// if '(L)oad from file' is selected
 		else if (toupper(choice) == 'L')
 		{
 			
@@ -4176,7 +4415,7 @@ void CGame::game_play()
 			}
 
 		}
-		// if quit game is selected
+		// if '(Q)uit game' is selected
 		else if(toupper(choice) == 'Q')
 		{
 			
@@ -4600,9 +4839,10 @@ bool CGame::save_game()
 	// an instance of the ofstream class
 	ofstream save_game;
 
+	// creating file for the saved game
 	save_game.open("CHess_C_save_game.txt");
 
-	// validating if the fail was created
+	// validating if the file was created
 	if (save_game.fail())
 	{
 		cout << "\n\tFailed to save the game. Try again!\n";
@@ -4644,10 +4884,11 @@ bool CGame::load_game()
 
 	// an instance of the istream class
 	ifstream load_game;
-
+	
+	// oppening 'CHess_C_save_game.txt' file
 	load_game.open("CHess_C_save_game.txt");
 
-	// validating if the file was opened successfully
+	// validating if the file was oppened successfully
 	if (load_game.is_open())
 	{
 
@@ -4726,7 +4967,7 @@ void CGame::clear_board()
 
 CGame::~CGame()
 {
-	// dealocating the alocated memory
+	// freeing the alocated memory
 	delete pawn;
 	delete rook;
 	delete knight;
