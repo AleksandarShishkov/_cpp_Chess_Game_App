@@ -15,20 +15,17 @@ Piece::Piece(int owner, int piece_id) :owner(owner), piece_id(piece_id)
 
 int Piece::get_owner()
 {
-	// rturning the current owner
 	return this->owner;
 }
 
 int Piece::get_piece_id()
 {
-	// returning the current piece id
 	return this->piece_id;
 }
 
 bool Piece::is_move_valid(int startRow, int startCol, int endRow, int endCol, int board[8][8])
 {
 
-	// if it is white`s turn
 	if (get_owner() == 0)
 	{
 
@@ -43,7 +40,6 @@ bool Piece::is_move_valid(int startRow, int startCol, int endRow, int endCol, in
 		}
 
 	}
-	// if it is black`s turn
 	else if (get_owner() == 1)
 	{
 
@@ -66,10 +62,8 @@ bool Piece::is_move_valid(int startRow, int startCol, int endRow, int endCol, in
 bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, int board[8][8])
 {
 
-	// if the piece is a white pawn
 	if (get_piece_id() == 1)
 	{
-		// validating the white pawn`s 1st move with 2 squares
 		if ((startRow - 1 == 6 && endRow - 1 == startRow - 3) && (startCol - 1 == endCol - 1))
 		{
 
@@ -85,7 +79,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		//validating the white pawn`s move with 1 square
 		if ((startRow - 1 <= 6 && endRow - 1 == startRow - 2) && (endCol - 1 == startCol - 1))
 		{
 			if (board[endRow - 1][endCol - 1] != 0)
@@ -96,17 +89,12 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 	}
-	// if the piece is a white rook
 	else if (get_piece_id() == 2)
 	{
 
-		// integer to hold the number of rows between the starting and the ending rows
-		int w_rook_rows = 0;
 
-		// integer to hold the number of columns between the starting and the ending column
 		int w_rook_cols = 0;
 
-		// validating if the upper squares on the column are empty
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -128,7 +116,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the lower squares on the column are empty
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -149,7 +136,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the right squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -171,7 +157,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating if the left squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -192,16 +177,13 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 			}
 		}
 	}
-	// if the piece is a white bishop
 	else if (get_piece_id() == 4)
 	{
 
 
-		// integer to hold the number of the rows between the starting and the ending positions
 		int w_bishop_rows = 0;
 
 
-		// validating the upper right diagonal
 
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 < endCol - 1))
 		{
@@ -223,7 +205,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating the lower right diagonal
 
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 < endCol - 1))
 		{
@@ -244,7 +225,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating the lower left diagonal
 
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 > endCol - 1))
 		{
@@ -267,7 +247,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating the upper left diagonal
 
 
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 > endCol - 1))
@@ -290,19 +269,15 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 			}
 		}
 	}
-	// if the piece is a white queen
 	else if (get_piece_id() == 5)
 	{
 
-		// integer to hold the number of the rows between the starting and the ending rows
 		int w_queen_rows = 0;
 
-		// integer to hold the number of the columns between the starting and the ending columns
 		int w_queen_cols = 0;
 
 
 
-		// validating if the upper squares on the column are empty
 
 		if ((startRow - 1 > endRow - 1) && (endCol - 1 == startCol - 1))
 		{
@@ -323,7 +298,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the lower squares on the column are empty
 
 		if ((startRow - 1 < endRow - 1) && (endCol - 1 == startCol - 1))
 		{
@@ -344,7 +318,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the right squares on the row are empty
 
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 < endCol - 1))
 		{
@@ -365,7 +338,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the left squares on the row are empty
 
 		if ((startRow - 1 == endRow - 1) && (endCol - 1 < startCol - 1))
 		{
@@ -386,7 +358,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating the upper right diagonal
 
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 < endCol - 1))
 		{
@@ -408,7 +379,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating the lower right diagonal
 
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 < endCol - 1))
 		{
@@ -430,7 +400,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating the lower left diagonal
 
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 > endCol - 1))
 		{
@@ -452,7 +421,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating the upper left diagonal
 
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 > endCol - 1))
 		{
@@ -474,11 +442,9 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 	}
-	// if the piece is a black pawn
 	else if (get_piece_id() == 7)
 	{
 
-		// validating the black pawn`s 1st move with 2 squares
 		if ((startRow - 1 == 1 && endRow - 1 == startRow + 1) && (endCol - 1 == startCol - 1))
 		{
 
@@ -494,7 +460,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating the black pawn`s move with 1 square
 		if ((startRow - 1 >= 1 && endRow - 1 == startRow) && (endCol - 1 == startCol - 1))
 		{
 			if (board[endRow - 1][endCol - 1] != 0)
@@ -507,16 +472,11 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 	}
 
-	// if the piece is a black rook
 	else if (get_piece_id() == 8)
 	{
-		// integer to hold the number of rows between the starting and the ending rows
 		int b_rook_rows = 0;
 
-		// integer to hold the number of columns between the starting and the ending column
-		int b_rook_cols = 0;
 
-		// validating if the upper squares on the column are empty
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -537,7 +497,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the lower squares on the column are empty
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -558,7 +517,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the right squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -579,7 +537,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating if the left squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -601,14 +558,11 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 	}
-	// if the piece is a black bishop
 	else if (get_piece_id() == 10)
 	{
-		// integer to hold the number of the squares between the starting and the ending positions
 		int b_bishop_rows = 0;
 
 
-		// validating the upper right diagonal
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -629,7 +583,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating the lower right diagonal
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -651,7 +604,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating the lower left diagonal
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -673,7 +625,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating the upper left diagonal
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -696,20 +647,16 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 	}
-	// if the piece is a black queen
 	else if (get_piece_id() == 11)
 	{
 
 
-		// integer to hold the number of the rows between the starting and the ending rows
 		int b_queen_rows = 0;
 
-		// integer to hold the number of the columns between the starting and the ending columns
 		int b_queen_cols = 0;
 
 
 
-		// validating if the upper squares on the column are empty
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -729,7 +676,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the lower squares on the column are empty
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 == endCol - 1))
 		{
 
@@ -749,7 +695,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the right squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -769,7 +714,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating if the left squares on the row are empty
 		if ((startRow - 1 == endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -789,7 +733,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 		}
 
 
-		// validating the upper right diagonal
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -810,7 +753,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating the lower right diagonal
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 < endCol - 1))
 		{
 
@@ -831,7 +773,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating the lower left diagonal
 		if ((startRow - 1 < endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -852,7 +793,6 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 
 
-		// validating the upper left diagonal
 		if ((startRow - 1 > endRow - 1) && (startCol - 1 > endCol - 1))
 		{
 
@@ -882,13 +822,11 @@ bool Piece::is_move_blocked(int startRow, int startCol, int endRow, int endCol, 
 
 bool Piece::are_right_castling_sqs_valid(int owner, int startRow, int startCol, int board[8][8])
 {
-	// returning false by default
 	return false;
 }
 
 bool Piece::are_left_castling_sqs_valid(int owner, int startRow, int startCol, int board[8][8])
 {
-	// returning false by default
 	return false;
 }
 
