@@ -17,17 +17,14 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 	if (get_owner() == 0)
 	{
 
-		// integer to hold the number of rows
 		int w_bishop_n_rows = 0;
 
-		// if the destination square is valid
 		if ((board[endRow - 1][endCol - 1] >= 7 && board[endRow - 1][endCol - 1] <= 12) ||
 			board[endRow - 1][endCol - 1] == 0)
 		{
 
 
 
-			// validating the white bishop`s upper right diagonal
 			if ((startRow - 1 > endRow - 1) && (startCol - 1 < endCol - 1))
 			{
 
@@ -35,7 +32,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 
 				if (((startRow - 1) - w_bishop_n_rows == endRow - 1) && ((startCol - 1) + w_bishop_n_rows == endCol - 1))
 				{
-					// validating if the move is blocked
 					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
@@ -43,7 +39,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 
 				}
 			}
-			// validating the white bishop`s lower right diagonal
 			else if ((startRow - 1 < endRow - 1) && (startCol - 1 < endCol - 1))
 			{
 
@@ -51,7 +46,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 
 				if (((startRow - 1) + w_bishop_n_rows == endRow - 1) && ((startCol - 1) + w_bishop_n_rows == endCol - 1))
 				{
-					// validating if the move is blocked
 					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
@@ -59,7 +53,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 
 				}
 			}
-			// vallidating the white bishop`s lower left diagonal
 			else if ((startRow - 1 < endRow - 1) && (startCol - 1 > endCol - 1))
 			{
 
@@ -67,7 +60,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 
 				if (((startRow - 1) + w_bishop_n_rows == endRow - 1) && ((startCol - 1) - w_bishop_n_rows == endCol - 1))
 				{
-					// validating if the move is blocked
 					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
@@ -75,7 +67,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 				}
 
 			}
-			// validating the white bishop`s upper left diagonal
 			else if ((startRow - 1 > endRow - 1) && (startCol - 1 > endCol - 1))
 			{
 
@@ -83,7 +74,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 
 				if (((startRow - 1 - w_bishop_n_rows == endRow - 1) && (startCol - 1) - w_bishop_n_rows == endCol - 1))
 				{
-					// validating if the move is blocked
 					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
@@ -98,7 +88,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 	else if (get_owner() == 1)
 	{
 
-		// integer to hold the number of rows
 		int b_bishop_n_rows = 0;
 
 		
@@ -107,7 +96,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 		{
 
 
-			// validating the black bishop`s upper right diagonal
 			if ((startRow - 1 > endRow - 1) && (startCol - 1 < endCol - 1))
 			{
 
@@ -115,7 +103,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 
 				if (((startRow - 1) - b_bishop_n_rows == endRow - 1) && ((startCol - 1) + b_bishop_n_rows == endCol - 1))
 				{
-					// validating if the move is blocked
 					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
@@ -123,7 +110,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 				}
 
 			}
-			// validating the black bishop`s lower right diagonal
 			else if ((startRow - 1 < endRow - 1) && (startCol - 1 < endCol - 1))
 			{
 
@@ -131,7 +117,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 
 				if (((startRow - 1) + b_bishop_n_rows == endRow - 1) && ((startCol - 1) + b_bishop_n_rows == endCol - 1))
 				{
-					// validating if the move is blocked
 					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
@@ -139,7 +124,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 				}
 
 			}
-			// vallidating the black bishop`s lower left diagonal
 			else if ((startRow - 1 < endRow - 1) && (startCol - 1 > endCol - 1))
 			{
 
@@ -148,7 +132,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 				
 				if (((startRow - 1) + b_bishop_n_rows == endRow - 1) && ((startCol - 1) - b_bishop_n_rows == endCol - 1))
 				{
-					// validating if the move is blocked
 					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
@@ -157,7 +140,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 				
 
 			}
-			// validating the black bishop`s upper left diagonal
 			else if ((startRow - 1 > endRow - 1) && (startCol - 1 > endCol - 1))
 			{
 				b_bishop_n_rows = (startRow - 1) - (endRow - 1);
@@ -165,7 +147,6 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 				
 				if (((startRow - 1) - b_bishop_n_rows == endRow - 1) && ((startCol - 1) - b_bishop_n_rows == endCol - 1))
 				{
-					// validating if the move is blocked
 					if (!is_move_blocked(startRow, startCol, endRow, endCol, board))
 					{
 						return true;
@@ -181,6 +162,3 @@ bool Bishop::is_move_valid(int startRow, int startCol, int endRow, int endCol, i
 	cout << "\n\tInvalid move!\n";
 	return false;
 }
-
-
-
