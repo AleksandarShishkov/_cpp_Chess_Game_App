@@ -1,6 +1,6 @@
 #include "Bishop.h"
 
-
+// test comment
 
 Bishop::Bishop(int owner, int piece_id) : Piece(owner, piece_id)
 {
