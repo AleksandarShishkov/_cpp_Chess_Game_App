@@ -1,5 +1,6 @@
 #include "Bishop.h"
 
+// commit test
 Bishop::Bishop(int owner, int piece_id) : Piece(owner, piece_id)
 {
 	// assigning owner to owner_bishop
