@@ -1,9 +1,6 @@
 
 #include "CGame.h"
 
-
-
-
 int main()
 {
 
