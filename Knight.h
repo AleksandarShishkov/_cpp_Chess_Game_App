@@ -1,6 +1,8 @@
 #ifndef KNIGHT_H
 #define KNIGHT_H
 
+//test commupdang the knight_h file
+
 #include "Piece.h"
 
 class Knight :public Piece
