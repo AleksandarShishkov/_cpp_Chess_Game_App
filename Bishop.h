@@ -2,7 +2,7 @@
 #define BISHOP_H
 
 // including Piece.h
-
+// test commit
 #include "Piece.h"
 
 class Bishop :public Piece
