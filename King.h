@@ -1,6 +1,6 @@
 #ifndef KING_H
 #define KING_H
-//test commit
+
 #include "Piece.h"
 
 
