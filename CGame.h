@@ -1,8 +1,6 @@
 #ifndef CGAME_H
 #define CGAME_H
 
-// test commit
-
 #include "Board.h"
 
 #include "Piece.h"
