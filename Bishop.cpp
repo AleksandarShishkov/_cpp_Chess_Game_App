@@ -1,6 +1,6 @@
 
 #include "Bishop.h"
-// updating bishop.h / adminbolt test
+
 
 Bishop::Bishop(int owner, int piece_id) : Piece(owner, piece_id)
 {
